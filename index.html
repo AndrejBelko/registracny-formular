@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Rezervačný formulár</title>
+    <link rel="stylesheet" href="vendor/styles.css">
+</head>
+<body>
+<header>Objednávanie športových priestorov</header>
+<form id="myForm" action="https://form2mail.hynix.sk/form2mail.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="apikey" value="68de9a54795017cb4d72123a25321188">
+    <input type="hidden" name="from" value="a.belko@azet.sk">
+    <input type="hidden" name="sender" value="Andrej Belko">
+    <input type="hidden" name="to" value="feistu04@gmail.com">
+    <input type="hidden" name="subject" value="Andrej Belko">
+    <input type="hidden" name="redirectOk" value="https://webte1.fei.stuba.sk/~xbelkoa/xd2/">
+    <input type="hidden" name="redirectFalse" value="https://www.google.com/">
+
+    <p>Tento formulár slúži na objednanie športoviska v Centre športu a voľného času v Slovenskej Ľupči. Objednávanie je
+        možné iba pre osoby staršie ako 15 rokov.</p>
+
+    <section class="osobneudaje">
+        <h2>Osobné údaje</h2>
+        <div class="box">
+            <label for="meno">*Krstné meno</label>
+            <input type="text" name="Meno" id="meno" maxlength="20" onblur="validateMeno()" onKeyUp="pocitadlo(this)"
+                   placeholder="Meno">
+            <div class="oznamy">
+                <p id="oznamMeno"></p>
+                <p class="pocet" id="pocitanieMeno">0/20</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <label for="priezvisko">*Priezvisko</label>
+            <input type="text" name="Priezvisko" id="priezvisko" maxlength="20" onblur="validatePriezvisko()"
+                   onKeyUp="pocitadlo(this)" placeholder="Priezvisko">
+            <div class="oznamy">
+                <p id="oznamPriezvisko"></p>
+                <p class="pocet" id="pocitaniePriezvisko">0/20</p>
+            </div>
+        </div>
+
+        <div class="pohlavie">
+            <p>*Pohlavie</p>
+            <label for="muz">Muž</label>
+            <input type="radio" name="Pohlavie" value="muz" id="muz" class="radiochack">
+
+            <label for="zena">Žena</label>
+            <input type="radio" name="Pohlavie" value="zena" id="zena" class="radiochack">
+
+            <p id="oznamPohlavie"></p>
+
+        </div>
+
+        <div class="boxPohlavie">
+            <label id="doplnujuceInfo"></label>
+            <label for="infoP"><input type="number" name="Doplňujúce info" oninput="maxDlzka(this)" onblur="validateInfo()"
+                                      onKeyUp="pocitadlo(this)" id="infoP"></label>
+            <div class="oznamy">
+                <p id="oznamInfo"></p>
+                <p class="pocet" id="pocitanieInfo">0/3</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <label for="narod">*Dátum narodenia</label>
+            <input type="date" name="Dátum narodenia" id="narod">
+            <p id="oznamNarodenie"></p>
+        </div>
+
+        <div class="box">
+            <label for="vek">*Vek</label>
+            <input type="number" name="Vek" id="vek" oninput="maxDlzka(this)" onKeyUp="pocitadlo(this)" placeholder="vek">
+            <div class="oznamy">
+                <p id="oznamVek"></p>
+                <p class="pocet" id="pocitanieVek">0/3</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="kontakt">
+        <h2>Kontaktné údaje</h2>
+        <div class="box">
+            <label for="email">*E-mail</label>
+            <input type="email" name="E-mail" id="email" onblur="validateEmail()"
+                   onKeyUp="pocitadlo(this)" placeholder="exmaple@example.com">
+            <div class="oznamy">
+                <p id="oznamEmail"></p>
+                <p class="pocet" id="pocitanieEmail">0/50</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <label for="telcislo">Tel. číslo</label>
+            <input type="tel" name="Tel. číslo" id="telcislo" maxlength="13" onblur="validateTelC()"
+                   onKeyUp="pocitadlo(this)" placeholder="+421XXXXXXXXX">
+            <div class="oznamy">
+                <p id="upozornenieTelC"></p>
+                <p class="pocet" id="pocitanieTelC">0/13</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="priestor">
+        <h2>Objednávka priestoru</h2>
+        <div class="box">
+            <label for="sporty">Športy</label>
+            <select id="sporty" name="Športy">
+                <option value="Futbal">Futbal</option>
+                <option value="Lezenie">Lezenie</option>
+                <option value="Plávanie">Plávanie</option>
+            </select>
+        </div>
+
+        <div class="box">
+            <label for="sportoviska">Športoviská</label>
+            <select id="sportoviska" name="Športovisko">
+                <option>Umelá tráva</option>
+                <option>Živá tráva</option>
+                <option>Hala</option>
+            </select>
+        </div>
+
+        <div class="box">
+            <label for="casCena">Čas a cena</label>
+            <select id="casCena" name="Čas a cena">
+                <option>1hod. - 15€</option>
+                <option>2hod. - 25€</option>
+            </select>
+        </div>
+    </section>
+
+    <section>
+        <h3>Dátum a čas rezervácie</h3>
+        <div class="box">
+            <label for="datum">*Dátum</label>
+            <input type="date" id="datum" name="Dátum" onblur="validateDatumObjednavky()">
+            <div class="oznamy">
+                <p id="upozornenieDatum"></p>
+            </div>
+        </div>
+
+        <div class="box">
+            <label for="cas">*Čas</label>
+            <input type="time" id="cas" name="Čas" onblur="validateCasObjednavky()">
+            <div class="oznamy">
+                <p id="upozornenieCas"></p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="doplnky">
+        <h2>Doplnkové služby</h2>
+        <div class="box">
+            <p>Regenerácia po športe (1 hod.)</p>
+            <label for="masaz">Masáž (30€)</label>
+            <input type="checkbox" name="Masáž" value="áno 30 €" id="masaz">
+
+            <label for="virivka">Vírivka (20€)</label>
+            <input type="checkbox" name="Vírivka" value="áno 20 €" id="virivka">
+
+            <label for="ine">Iné (30€)</label>
+            <input type="checkbox" name="Iné" value="áno 30 €" id="ine">
+
+
+            <div class="skrytyText">
+                <label for="ineText"></label><textarea id="ineText" name="Iná regenerácia" maxlength="200"
+                                                        onblur="validateRegen()" onKeyUp="pocitadlo(this)"></textarea>
+                <div class="oznamy">
+                    <p id="oznamRegen"></p>
+                    <p class="pocet" id="pocitanieRegen">0/200</p>
+                </div>
+            </div>
+        </div>
+        <div class="boxSkryte">
+            <button type="button" id="odkrytSkryte">Info</button>
+            <p id="skryte" style="display: none">Volám sa Andrej Belko a toto je moje druhé zadanie na Webové
+                technológie<br><br></p>
+        </div>
+        <div>
+            <label for="celkovaCena"></label><input type="text" name="Celková cena" id="celkovaCena">
+        </div>
+    </section>
+
+
+    <button type="button" id="odoslat">Odoslať</button>
+    <p>*Povinné polia</p>
+
+
+</form>
+<div class="modal" id="oknoNad"></div>
+<script src="js/script.js"></script>
+</body>
+</html>

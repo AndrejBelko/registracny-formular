@@ -1,0 +1,249 @@
+@font-face {
+    font-family: CroissantOne;
+    src: url("CroissantOne-Regular.ttf");
+}
+
+
+form{
+    font-size: large;
+    background-color: rgba(00,255,255,70%);
+    padding: 1%;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+    border-radius: 10px;
+}
+body{
+    font-family: CroissantOne, serif;
+    background-image: url('modern-city-skyline-backgrounds_77417-834.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#skryte{
+    font-size: small;
+}
+
+
+.pocet{
+    text-align: right;
+}
+
+.oznamy{
+    display: grid;
+    grid: auto / auto auto;
+    width: 75%;
+    font-size: small;
+}
+
+body form .doplnky .box .skrytyText{
+    height: 66px;
+}
+
+#odoslat{
+    margin-right: auto;
+    margin-left: 25%;
+    text-align: center;
+    width: 50%;
+}
+
+
+
+@media only screen and (max-width: 768px){
+    body form section{
+        display: grid;
+        margin-left:10%;
+        font-size: small;
+    }
+
+    body form #meno, body form #priezvisko, body form #narod, body form #vek, body form #telcislo, body form #email, body form select,body form #infoP, body form #cas, body form #datum{
+        width: 90%;
+        height: 30px;
+    }
+
+    input, select{
+        display: block;
+        border-radius: 5px;;
+    }
+
+    select{
+        width: 25vw;
+        height: 30px;
+    }
+
+    .priestor{
+        display: grid;
+        grid: auto / auto;
+    }
+
+    .priestor .box{
+        margin-bottom: 5%;
+    }
+
+
+    body form section .oznamy{
+        font-size: x-small;
+        width: 90%;
+        height: 30px;
+    }
+
+    body form section .box #oznamNarodenie{
+        height: 30px;
+        font-size: x-small;
+    }
+
+    .boxPohlavie{
+        height: 100px;
+    }
+    body form textarea{
+        width: 75%;
+    }
+
+    body form .doplnky .boxSkryte{
+        width: 75%;
+    }
+
+}
+
+
+@media only screen and (min-width: 769px){
+
+    body form section{
+        display: grid;
+        grid:auto / auto auto;
+        margin-left:5%;
+    }
+
+    input, select{
+        display: block;
+        border-radius: 5px;
+    }
+
+    select{
+        width: 18vw;
+        height: 30px;
+    }
+
+    .priestor{
+        display: grid;
+        grid: auto / auto auto auto;
+    }
+
+    .box{
+        padding-top: 25px;
+    }
+
+    .oznamy{
+        width: 30vw;
+    }
+
+    body form .doplnky .boxSkryte{
+        width: 10vw;
+    }
+
+    h2{
+        grid-column: 1/span 2;
+    }
+
+    .priestor h2{
+        grid-column: 1/span 3;
+    }
+
+    h3{
+        margin-top: 5%;
+        margin-bottom: 0;
+        grid-column: 1/span 2;
+    }
+
+
+}
+
+input, select{
+    border:none;
+    border-bottom: 2px solid black;
+    background-color: rgba(00,255,255,0%);
+}
+
+#meno, #priezvisko, #narod, #vek, #telcislo, #email, #cas, #datum {
+    width: 30vw;
+    height: 30px;
+}
+
+textarea{
+    width: 30vw;
+}
+
+#infoP{
+    width: 30vw;
+    height: 30px;
+    margin-bottom: 1%;
+    display: none;
+}
+
+#oznamInfo, #pocitanieInfo, #oznamRegen, #pocitanieRegen, #oknoNad{
+    display: none;
+}
+
+#oznamMeno, #oznamPriezvisko, #oznamVek, #oznamNarodenie, #oznamEmail,#upozornenieVek, #upozornenieEmail, #upozornenieTelC, #oznamInfo, #oznamPohlavie, #oznamRegen, #upozornenieDatum, #upozornenieCas {
+    color: red;
+    font-size: smaller;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+header {
+    text-align: center;
+    font-size: xx-large;
+    margin: 2%;
+}
+
+#ineText{
+    display: none;
+}
+
+h1{
+    font-size: x-large;
+}
+
+#celkovaCena{
+    visibility: hidden;
+}
+
+
